@@ -3,11 +3,12 @@ import { AuthContext } from '../contexts/AuthContext';
 import { ChatContext } from '../contexts/ChatContext';
 import { ChatFormContext } from '../contexts/ChatFormContext';
 import { ScreenContext } from '../contexts/ScreenContext';
-import { db } from '../firebase_config';
+import { db, timestamp } from '../firebase_config';
 import './ChatBox.css';
 
 const ChatBox = () => {
 
+    console.log(new timestamp().toLocaleString());
     const { setChatId, chatId, setChat, setChatChanges } = useContext(ChatContext);
 
     const [chatDetails, setChatDetails] = useState(null);
@@ -38,14 +39,14 @@ const ChatBox = () => {
         e.preventDefault();
         db.collection('chats').doc(chatId).collection('messages').add({
             message: message,
-            createdAt: new Date().toLocaleString(),
+            createdAt: new Date().toString(),
             sentBy: authState.uid,
             photoURL: authState.photoURL
         }).catch((error) => {
             alert(error.message)
         });
         db.collection('chats').doc(chatId).set({
-            updatedAt: new Date().toLocaleString()
+            updatedAt: new Date().toString()
         }, { merge: true });
     }
 
@@ -73,16 +74,7 @@ const ChatBox = () => {
                 <div className='chat-space'>
                     <div className="dummy-message"></div>
                     {chatMessages && chatMessages.map((message) => {
-                        var lastUpdated = '';
-                        if((new Date() - new Date(message.data().createdAt))/1000 < 60) {
-                            lastUpdated = ((new Date() - new Date(message.data().createdAt))/1000).toFixed() + ' seconds ago';
-                        } else if((new Date() - new Date(message.data().createdAt))/1000 > 60 && (new Date() - new Date(message.data().createdAt))/1000 < 60*60) {
-                            lastUpdated = ((new Date() - new Date(message.data().createdAt))/(1000*60)).toFixed() + ' minutes ago';
-                        } else if((new Date() - new Date(message.data().createdAt))/1000 > 60*60 && (new Date() - new Date(message.data().createdAt))/1000 < 24*60*60) {
-                            lastUpdated = ((new Date() - new Date(message.data().createdAt))/(1000*60*60)).toFixed() + ' hours ago';
-                        } else if((new Date() - new Date(message.data().createdAt))/1000 > 24*60*60) {
-                            lastUpdated = new Date(message.data().createdAt).toLocaleDateString();
-                        } 
+                        var lastUpdated = new Date(message.data().createdAt).toLocaleString();
                         if(message.data().sentBy === authState.uid){
                             return(
                                 <div key={message.id} className="chat-message-container sent-by-me">
