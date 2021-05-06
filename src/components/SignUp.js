@@ -1,5 +1,5 @@
 import { useContext, useReducer } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext';
 import { auth } from '../firebase_config';
 import './AuthForm.css';
@@ -10,6 +10,8 @@ const signupReducer = (signupState, action) => {
             return {
                 ...signupState, [action.field]: action.value
             }
+        default:
+            return
     }
 }
 
@@ -44,7 +46,7 @@ const SignUp = () => {
     // console.log(auth.currentUser.providerData[0]);
 
     if(authState){
-        return <Redirect to='/' />
+        return <Redirect to='/updateprofile' />
     } else {
     return ( 
         <div className="form-container">
@@ -73,6 +75,7 @@ const SignUp = () => {
                 </div>
                 <button type="submit" className="submit-button">{signupState.isLoading ? "Loading..." : "SignUp"}</button>
             </form>
+            <p style={{margin: "auto"}}>Already have an account? <Link to='/login'>LogIn</Link></p>
         </div>
     );}
 }

@@ -1,5 +1,5 @@
 import { useContext, useReducer } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext';
 import { auth } from '../firebase_config';
 import './AuthForm.css';
@@ -11,6 +11,8 @@ const loginReducer = (loginState, action) => {
             return {
                 ...loginState, [action.field]: action.value
             }
+        default:
+            return
     }
 }
 
@@ -61,8 +63,9 @@ const Login = () => {
                     </label>
                     <input type="password" className="input-field" onChange={(e) => loginDispatch({type: "field", field: "password", value: e.target.value})} />
                 </div>
-                <button type="submit" className="submit-button">{loginState.isLoading ? "Loading..." : "login"}</button>
+                <button type="submit" className="submit-button">{loginState.isLoading ? "Loading..." : "LogIn"}</button>
             </form>
+            <p style={{margin: "auto"}}>Don't have an account? <Link to='/signup'>SignUp</Link></p>
         </div>
     );}
 }

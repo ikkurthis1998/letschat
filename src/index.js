@@ -5,14 +5,20 @@ import App from './App';
 import ScreenContextProvider from './contexts/ScreenContext';
 import {BrowserRouter as Router} from 'react-router-dom';
 import AuthContextProvider from './contexts/AuthContext';
+import ChatContextProvider from './contexts/ChatContext';
+import ChatFormContextProvider from './contexts/ChatFormContext';
 
 ReactDOM.render(
   <React.StrictMode>
     <ScreenContextProvider>
       <AuthContextProvider>
-        <Router>
-          <App />
-        </Router>
+        <ChatContextProvider>
+          <ChatFormContextProvider>
+            <Router>
+              <App />
+            </Router>
+          </ChatFormContextProvider>
+        </ChatContextProvider>
       </AuthContextProvider>
     </ScreenContextProvider>
   </React.StrictMode>,

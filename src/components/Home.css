@@ -1,0 +1,126 @@
+.profile-container {
+    /* border: solid; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.profile-photo-container {
+    margin: 20px;
+    margin-left: 0;
+    display: flex;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100px;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile-pic-home {
+    width: 100px;
+}
+
+.side-container {
+    /* border: solid; */
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    justify-content: flex-start;
+    align-items: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.play-ground {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+}
+
+.side-container-small {
+    /* border: solid; */
+    height: 92vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.profile-container-small {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    /* border: solid; */
+    width: 100%;
+    padding: 20px 0;
+}
+
+.profile-pic-home-small {
+    width: 100px;
+}
+
+.profile-photo-container-small {
+    margin: auto;
+    margin-left: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    /* border: solid; */
+}
+
+.profile-details-container-small {
+    /* border: solid; */
+    width: 50%;
+    margin-left: 40px;
+}
+
+.display-name {
+    margin: auto;
+    font-size: large;
+    margin-bottom: 10px;
+}
+
+.display-name-container {
+    /* border: solid; */
+    display: flex;
+    flex-direction: column;
+}
+
+.button {
+    padding: 10px 18px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: aliceblue;
+    border: none;
+    border-radius: 5px;
+    height: 35px;
+    width: 130px;
+}
+
+.button:hover {
+    cursor: pointer;
+    width: 140px;
+    height: 40px;
+    background-color: rgb(0, 0, 0);
+}
+
+.home-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    width: 100vw;
+    flex-direction: column;
+}
+
+.button-home {
+    margin-bottom: 10px;
+}

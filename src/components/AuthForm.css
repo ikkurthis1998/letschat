@@ -1,6 +1,9 @@
 .form-container {
     /* border: solid; */
     padding: 40px 20px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
 }
 
 .form-heading {
@@ -38,6 +41,7 @@
 .submit-button {
     margin: auto;
     margin-top: 20px;
+    margin-bottom: 20px;
     font-size: 16px;
     /* width: 100px; */
     padding: 12px 20px;
@@ -65,4 +69,29 @@
 
 .error-message {
     padding: 0 30px;
+}
+
+.input-file {
+    display: none;
+}
+
+.photo-container {
+    border: 1px solid rgba(255, 255, 255, 1);
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.file-label {
+    display: flex;
+    margin: 20px;
+}
+
+.profile-pic {
+    width: 150px;
 }
