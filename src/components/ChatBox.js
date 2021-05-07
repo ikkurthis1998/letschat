@@ -64,7 +64,7 @@ const ChatBox = () => {
                                         </div>
                 }
                 <div className='chat-photo-container' onClick={() => {setChatChanges(chatDetails);setChatForm(true)}}>
-                    {chatDetails && <img alt='chat-pic' className='chat-pic' src={chatDetails.data().photoURL} />}
+                    {chatDetails && <img alt='chat-pic' className='chat-pic' src={chatDetails.data().photoURL ? chatDetails.data().photoURL : "https://firebasestorage.googleapis.com/v0/b/letschat-reactwithfirebase.appspot.com/o/group%20icon.png?alt=media&token=8207acf0-4bc0-4614-8916-7fc517b7cf4d"} />}
                 </div>
                 <div className='title-input-container'>
                     {chatDetails && <p>{chatDetails.data().name}</p> }
@@ -83,7 +83,7 @@ const ChatBox = () => {
                                         <p className="chat-time">{lastUpdated}</p>
                                     </div>
                                     <div className="chat-message-image-container">
-                                        <img className="chat-message-image" alt='chat-pic' src={message.data().photoURL} />
+                                        <img className="chat-message-image" alt='chat-pic' src={message.data().photoURL ? message.data().photoURL : "https://firebasestorage.googleapis.com/v0/b/letschat-reactwithfirebase.appspot.com/o/profileicon.png?alt=media&token=e51f8d2c-8332-46e0-b434-04ab2b565934"} />
                                     </div>
                                 </div>
                             )
@@ -91,7 +91,7 @@ const ChatBox = () => {
                             return(
                                 <div key={message.id} className="chat-message-container sent-by-others">
                                     <div className="chat-message-image-container">
-                                        <img alt='chat-pic' className="chat-message-image" src={message.data().photoURL} />
+                                        <img alt='chat-pic' className="chat-message-image" src={message.data().photoURL ? message.data().photoURL : "https://firebasestorage.googleapis.com/v0/b/letschat-reactwithfirebase.appspot.com/o/profileicon.png?alt=media&token=e51f8d2c-8332-46e0-b434-04ab2b565934"} />
                                     </div>
                                     <div className="message-sent-by-others-container">
                                         <p className="message-sent-by-others">{message.data().message}</p>

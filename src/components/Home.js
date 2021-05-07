@@ -57,7 +57,7 @@ const Home = () => {
                     <div className='profile-container'>
                         <Link to='/updateprofile'>
                             <div className='profile-photo-container'>
-                                <img alt='profile-pic' className='profile-pic-home' src={authState.photoURL} />
+                                <img alt='profile-pic' className='profile-pic-home' src={authState.photoURL ? authState.photoURL : "https://firebasestorage.googleapis.com/v0/b/letschat-reactwithfirebase.appspot.com/o/profileicon.png?alt=media&token=e51f8d2c-8332-46e0-b434-04ab2b565934"} />
                             </div>
                         </Link>
                         <div className="display-name-container">
@@ -79,7 +79,7 @@ const Home = () => {
                                         <div className='profile-container-small'>
                                             <Link to='/updateprofile'>
                                                 <div className='profile-photo-container-small'>
-                                                    <img alt='profile-pic' className='profile-pic-home' src={authState.photoURL} />
+                                                    <img alt='profile-pic' className='profile-pic-home' src={authState.photoURL ? authState.photoURL : "https://firebasestorage.googleapis.com/v0/b/letschat-reactwithfirebase.appspot.com/o/profileicon.png?alt=media&token=e51f8d2c-8332-46e0-b434-04ab2b565934"} />
                                                 </div>
                                             </Link>
                                             <div className='profile-details-container-small'>

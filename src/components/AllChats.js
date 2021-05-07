@@ -39,7 +39,7 @@ const AllChats = () => {
                     return(
                         <div key={chat.id} className="chat-container" onClick={() => openChat(chat)}>
                             <div className="chat-image-container">
-                                <img src={chat.data().photoURL} alt='alt-pic' className="chat-image" />
+                                <img src={chat.data().photoURL ? chat.data().photoURL : "https://firebasestorage.googleapis.com/v0/b/letschat-reactwithfirebase.appspot.com/o/group%20icon.png?alt=media&token=8207acf0-4bc0-4614-8916-7fc517b7cf4d"} alt='alt-pic' className="chat-image" />
                             </div>
                             <div className="chat-name-container">
                                 <p className="chat-name" style={{color: "white"}}>{chat.data().name}</p>
