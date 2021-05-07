@@ -3,12 +3,12 @@ import { AuthContext } from '../contexts/AuthContext';
 import { ChatContext } from '../contexts/ChatContext';
 import { ChatFormContext } from '../contexts/ChatFormContext';
 import { ScreenContext } from '../contexts/ScreenContext';
-import { db, timestamp } from '../firebase_config';
+import { db } from '../firebase_config';
 import './ChatBox.css';
 
 const ChatBox = () => {
 
-    console.log(new timestamp().toLocaleString());
+    // console.log(new timestamp().toLocaleString());
     const { setChatId, chatId, setChat, setChatChanges } = useContext(ChatContext);
 
     const [chatDetails, setChatDetails] = useState(null);

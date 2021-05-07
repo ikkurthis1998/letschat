@@ -39,23 +39,27 @@ const ChatBoxForm = () => {
 
     const updateChatBox = (e) => {
         e.preventDefault();
-        if(chatChanges) {
-            db.collection('chats').doc(chatChanges.id).set({
-                name: chatBoxFormState.name,
-                photoURL: chatBoxFormState.photoURL
-            }, { merge: true })
-
+        if(!chatBoxFormState.name) {
+            alert("Please enter a name")
+        } else{
+            if(chatChanges) {
+                db.collection('chats').doc(chatChanges.id).set({
+                    name: chatBoxFormState.name,
+                    photoURL: chatBoxFormState.photoURL
+                }, { merge: true })
+    
+            }
+            else {
+                db.collection('chats').doc().set({
+                    name: chatBoxFormState.name,
+                    photoURL: chatBoxFormState.photoURL,
+                    createdAt: new Date().toLocaleString(), 
+                    updatedAt: new Date().toLocaleString()
+                }, { merge: true })
+            }
+            setChatForm(false);
+            setChatChanges(null);
         }
-        else {
-            db.collection('chats').doc().set({
-                name: chatBoxFormState.name,
-                photoURL: chatBoxFormState.photoURL,
-                createdAt: new Date().toLocaleString(), 
-                updatedAt: new Date().toLocaleString()
-            }, { merge: true })
-        }
-        setChatForm(false);
-        setChatChanges(null);
     }
 
     return ( 
